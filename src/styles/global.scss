@@ -1,34 +1,36 @@
-$cyan: #80FFEA;
+:root {
+  --cyan: #80FFEA;
 
-$background-main: #2A2C37;
-$background-aside: #1D1E26;
-$background-header: #201B2D;
+  --background-main: #2A2C37;
+  --background-aside: #1D1E26;
+  --background-header: #201B2D;
 
-$green: #8AFF80;
-$green-500: #04D361;
+  --green: #8AFF80;
+  --green-500: #04D361;
 
 
-$gray-50: #F7F8FA;
-$gray-100: #E6E8EB;
-$gray-200: #AFB2B1;
-$gray-500: #808080;
-$gray-800: #494D48;
+  --gray-50: #F7F8FA;
+  --gray-100: #E6E8EB;
+  --gray-200: #AFB2B1;
+  --gray-500: #808080;
+  --gray-800: #494D48;
 
-$pink: #FF80BF;
+  --pink: #FF80BF;
 
-$purple: #9580ff;
-$purple-300: #9F75FF;
-$purple-400: #9164FA;
-$purple-500: #8257E5;
-$purple-800: #6F48C9;
+  --purple: #9580ff;
+  --purple-300: #9F75FF;
+  --purple-400: #9164FA;
+  --purple-500: #8257E5;
+  --purple-800: #6F48C9;
 
-$white: #FFF;
+  --white: #FFF;
 
-$yellow: #FFFF80;
+  --yellow: #FFFF80;
 
-$gradient-purple-cyan: linear-gradient(135deg, $purple, $cyan);
-$gradient-cyan-green: linear-gradient(135deg, $cyan, $green);
-$gradient-yellow-pink: linear-gradient(135deg, $yellow, $pink);
+  --gradient-purple-cyan: linear-gradient(135deg, --purple, --cyan);
+  --gradient-cyan-green: linear-gradient(135deg, --cyan, --green);
+  --gradient-yellow-pink: linear-gradient(135deg, --yellow, --pink);
+}
 
 * {
   margin: 0;
@@ -52,12 +54,12 @@ body {
   font-smooth: antialiased;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
-  background: $background-main;  
+  background: var(--background-main);  
 }
 
 body, input, textarea, button {
   font: 500 1rem sans-serif;
-  color: $gray-500;
+  color: var(--gray-500);
 }
 
 button {

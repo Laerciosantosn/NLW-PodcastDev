@@ -1,0 +1,22 @@
+.headerContainer {
+  background: var(--background-header);
+  height: 6.5rem;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 4rem;
+  border-bottom: 1px solid var(--gray-100);
+
+  p {
+    padding: 0 2rem;
+    margin-left: 2rem;
+    border-left: 1px solid var(--gray-500);
+    color: var(--gray-500);
+  }
+
+  span {
+    margin-left: auto;
+    text-transform: capitalize;
+  }
+}
