@@ -1,0 +1,86 @@
+$cyan: #80FFEA;
+
+$background-main: #2A2C37;
+$background-aside: #1D1E26;
+$background-header: #201B2D;
+
+$green: #8AFF80;
+$green-500: #04D361;
+
+
+$gray-50: #F7F8FA;
+$gray-100: #E6E8EB;
+$gray-200: #AFB2B1;
+$gray-500: #808080;
+$gray-800: #494D48;
+
+$pink: #FF80BF;
+
+$purple: #9580ff;
+$purple-300: #9F75FF;
+$purple-400: #9164FA;
+$purple-500: #8257E5;
+$purple-800: #6F48C9;
+
+$white: #FFF;
+
+$yellow: #FFFF80;
+
+$gradient-purple-cyan: linear-gradient(135deg, $purple, $cyan);
+$gradient-cyan-green: linear-gradient(135deg, $cyan, $green);
+$gradient-yellow-pink: linear-gradient(135deg, $yellow, $pink);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+body {
+  font-smooth: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  background: $background-main;  
+}
+
+body, input, textarea, button {
+  font: 500 1rem sans-serif;
+  color: $gray-500;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+}
+
+h1, h2 {
+  font-family: 'Lexend', sans-serif;
+  font-weight: 600;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
