@@ -3,7 +3,7 @@
 
   --background-main: #2A2C37;
   --background-aside: #1D1E26;
-  --background-header: #201B2D;
+  --background-header: #191622;
 
   --green: #8AFF80;
   --green-500: #04D361;
@@ -31,6 +31,7 @@
   --gradient-cyan-green: linear-gradient(135deg, --cyan, --green);
   --gradient-yellow-pink: linear-gradient(135deg, --yellow, --pink);
 }
+
 
 * {
   margin: 0;
@@ -72,7 +73,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.875rem;
 }
 

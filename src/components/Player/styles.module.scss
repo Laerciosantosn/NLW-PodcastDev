@@ -1,0 +1,102 @@
+.playerContainer {
+  width: 26.5rem;
+  height: 100vh;
+
+  padding: 2rem 4rem 3rem;
+
+  background: var(--background-aside);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 1rem;
+
+    strong {
+      background: -webkit-linear-gradient(130.69deg, var(--cyan) , var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  strong {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+  }
+  
+
+  footer {
+    align-self: stretch;
+    &.empty {
+      opacity: 0.5;
+    }
+  }
+}
+
+.emptyPlayer {
+  width: 100%;
+  height: 21.625rem;
+  border-radius: 1.5rem;
+  border: 1.5px dashed var(--green);
+  background: linear-gradient(130.69deg, var(--purple) , var(--cyan));
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  strong {
+    width: 153px;
+  }
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  font-size: 0.875rem;
+
+  span {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .slider {
+    flex: 1;
+
+    .emptySlider {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(130.69deg, var(--purple), var(--cyan));
+      border-radius: 0.625rem;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  gap: 1.5rem;
+
+  button {
+    background: transparent;
+    border: 0;
+    font-size: 0;
+
+    &.playButton {
+      width: 4rem;
+      height: 4rem;
+      background: linear-gradient(130.69deg, var(--purple) , var(--cyan));
+      border-radius: 1rem;
+    }
+  }
+}
