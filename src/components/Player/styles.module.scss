@@ -56,6 +56,9 @@
     margin-top: 2rem;
     font: 600 1.25rem Lexend, sans-serif;
     line-height:1.75rem;
+    background: -webkit-linear-gradient(30.69deg, var(--green) , var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   span {
@@ -119,12 +122,20 @@
 
     &:disabled {
       cursor: default;
+      filter: brightness(0.7);
     }
 
     &:hover:not(:disabled) {
            
       // filter: brightness(0.7);
+    }
 
+    &.isActive {
+      filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+
+      &:hover {
+        filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+      }
     }
 
     &.playButton,

@@ -22,14 +22,14 @@
       &:first-child {
         left: 0;
         top: 50%;
-        background: var(--purple-500);
+        background: linear-gradient(130.69deg, var(--purple) , var(--cyan));
         transform: translate(-50%, -50%);
       }
 
       &:last-child {
         right: 0;
         top: 50%;
-        background: var(--green-500);
+        background: linear-gradient(130.69deg, var(--cyan) , var(--green));
         transform: translate(50%, -50%);
 
       }
@@ -47,6 +47,9 @@
     h1 {
       margin-top: 2rem;
       margin-bottom: 1.5rem;
+      background: -webkit-linear-gradient(30deg, var(--yellow), var(--pink) 85%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     span {
@@ -76,7 +79,7 @@
   .description {
     margin-top: 2rem;
     line-height: 1.675rem;
-    color: var(--gray-800);
+    color: var(--gray-100);
 
     p {
       margin: 1.5rem 0;

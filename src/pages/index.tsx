@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import Head from 'next/head';
 import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
-import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
 import { api } from "../services/api";
 
 import styles from './home.module.scss';
-import { PlayerContext } from '../contexts/PlayerContext';
+import {  usePlayer } from '../contexts/PlayerContext';
 
 // SPA useEffect e um exemplo de SPA
 // SSR getServerSideProps ou getStaticProps o next ja entende que deve executar a função antes de exibir a pagina
@@ -34,15 +34,20 @@ type HomeProps = {
 
 export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
 
-  const { play } = useContext(PlayerContext)
+  const { playList } = usePlayer();
+
+  const episodeList = [...latestEpisodes, ...allEpisodes];
 
   return (
     <div className={styles.homepage}>
+      <Head>
+        <title>Home podcast</title>
+      </Head>
      <section className={styles.latestEpisodes}>
-       <h2>Últimos lançamentos</h2>
+       <h2>Last releases</h2>
 
        <ul>
-          {latestEpisodes.map(episode => {
+          {latestEpisodes.map((episode, index) => {
             return (
               <li key={episode.id}>
                 <Image 
@@ -61,7 +66,7 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
                   <span>{episode.published_at}</span>
                   <span>{episode.durationAsString}</span>
                 </div>
-                  <button type="button" onClick={() => play(episode)}>
+                  <button type="button" onClick={() => playList(episodeList, index)}>
                     <img src="/play-green.svg" alt="Tocar episódio"/>
                   </button>
 
@@ -72,20 +77,20 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
      </section>
 
      <section className={styles.allEpisodes}>
-        <h2>Todos os episódios</h2>
+        <h2>All episodes</h2>
         <table cellSpacing={0}>
           <thead>
             <tr>
               <th></th>
               <th>Podcast</th>
-              <th>Integrantes</th>
-              <th>Data</th>
-              <th>Duração</th>
+              <th>Members</th>
+              <th>Date</th>
+              <th>Duration</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            {allEpisodes.map(episode => {
+            {allEpisodes.map((episode, index) => {
               return (
                 <tr key={episode.id}>
                   <td style={{width: 72}}>
@@ -106,7 +111,10 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
                   <td style={{width: 100}}>{episode.published_at}</td>
                   <td>{episode.durationAsString}</td>
                   <td>
-                    <button type="button">
+                    <button 
+                      type="button"
+                      onClick={() => playList(episodeList, index + latestEpisodes.length)}
+                    >
                       <img src="/play-white.svg" alt="Tocar episódio"/>
                     </button>
                   </td>
@@ -136,7 +144,7 @@ export const getStaticProps: GetStaticProps = async () => {
       thumbnail: episode.thumbnail,
       members: episode.members,
       published_at: format(parseISO(episode.published_at), 'd MMM yy', { locale: ptBR }),
-      durationAsString: convertDurationToTimeString(Number(episode.file.duration)),
+      duration: episode.file.duration,
       description: episode.description,
       url: episode.file.url,
     }
