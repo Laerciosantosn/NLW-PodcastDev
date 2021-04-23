@@ -7,6 +7,17 @@
 
   padding: 0 4rem;
   border-bottom: 1px solid var(--gray-100);
+  
+  
+  strong {
+    margin-left: 1.125rem;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+
+    background: -webkit-linear-gradient(30.69deg, var(--purple) , var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
   p {
     padding: 0 2rem;

@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import React from "react";
+import React, { useContext } from "react";
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
@@ -9,6 +9,7 @@ import { convertDurationToTimeString } from "../utils/convertDurationToTimeStrin
 import { api } from "../services/api";
 
 import styles from './home.module.scss';
+import { PlayerContext } from '../contexts/PlayerContext';
 
 // SPA useEffect e um exemplo de SPA
 // SSR getServerSideProps ou getStaticProps o next ja entende que deve executar a função antes de exibir a pagina
@@ -32,6 +33,8 @@ type HomeProps = {
 }
 
 export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
+
+  const { play } = useContext(PlayerContext)
 
   return (
     <div className={styles.homepage}>
@@ -57,10 +60,10 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
                   <p>{episode.members}</p>
                   <span>{episode.published_at}</span>
                   <span>{episode.durationAsString}</span>
-                  <button type="button">
+                </div>
+                  <button type="button" onClick={() => play(episode)}>
                     <img src="/play-green.svg" alt="Tocar episódio"/>
                   </button>
-                </div>
 
               </li>
             )

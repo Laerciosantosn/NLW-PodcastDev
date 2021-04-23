@@ -9,8 +9,8 @@ export const Header: React.FC = () => {
 
   return (
     <header className={styles.headerContainer}>
-        <img src="/logo.svg" alt="Logo"/>
-
+        <img src="/Flat.svg" alt="Logo"/>
+        <strong>PodecastDev</strong>
         <p>The best for you to hear, always</p>
         <span>{currentDate}</span>
     </header>
