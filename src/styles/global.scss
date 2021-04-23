@@ -28,6 +28,9 @@
   --yellow: #FFFF80;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+}
 
 * {
   margin: 0;
