@@ -28,6 +28,8 @@ export const Player: React.FC = () => {
     clearPlayerState,
   } = usePlayer();
 
+  console.log(episodeList)
+
   useEffect(() => {
     if(!audioRef.current) {
       return;

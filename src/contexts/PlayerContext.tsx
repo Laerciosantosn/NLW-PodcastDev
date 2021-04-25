@@ -5,6 +5,7 @@ type EpisodePlayer = {
   members: string;
   thumbnail: string;
   duration: number;
+  durationAsString: string;
   url: string;
 }
 

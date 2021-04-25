@@ -10,6 +10,7 @@ import { api } from "../services/api";
 
 import styles from './home.module.scss';
 import {  usePlayer } from '../contexts/PlayerContext';
+import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
 
 // SPA useEffect e um exemplo de SPA
 // SSR getServerSideProps ou getStaticProps o next ja entende que deve executar a função antes de exibir a pagina
@@ -149,6 +150,7 @@ export const getStaticProps: GetStaticProps = async () => {
       members: episode.members,
       published_at: format(parseISO(episode.published_at), 'd MMM yy', { locale: ptBR }),
       duration: episode.file.duration,
+      durationAsString: convertDurationToTimeString(episode.file.duration),
       description: episode.description,
       url: episode.file.url,
     }

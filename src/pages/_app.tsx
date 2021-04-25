@@ -1,8 +1,6 @@
-import { useState } from "react";
-
 import { Header } from "../components/Header";
 import { Player } from "../components/Player";
-import { PlayerContext, PlayerContextProvider } from "../contexts/PlayerContext";
+import { PlayerContextProvider } from "../contexts/PlayerContext";
 
 import '../styles/global.scss';
 import styles from '../styles/app.module.scss';
@@ -14,9 +12,9 @@ function MyApp({ Component, pageProps }) {
       <div className={styles.appWrapper}>
         <main>
           <Header />
-          <Component {...pageProps} />
+          {/* <Component {...pageProps} /> */}
         </main>
-        <Player />
+        {/* <Player /> */}
       </div>
     </PlayerContextProvider>
   )

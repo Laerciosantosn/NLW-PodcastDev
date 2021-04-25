@@ -1,34 +1,93 @@
 .headerContainer {
   background: var(--background-header);
-  height: 6.5rem;
+  height: 8rem;
 
-  display: flex;
   align-items: center;
-
-  padding: 0 4rem;
+  justify-content: space-between;
+  padding: 1rem;
+  display: grid;
   border-bottom: 1px solid var(--gray-100);
-  
-  
-  strong {
-    margin-left: 1.125rem;
-    font-size: 1.5rem;
-    line-height: 1.875rem;
+  grid-template-columns: 12.5rem auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+    'logo date' 
+    'description description ';
 
-    background: -webkit-linear-gradient(30.69deg, var(--purple) , var(--cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  div {
+    display: flex;
+    align-items: center;
+
+    img {
+      grid-area: img;
+      width: 2rem;
+      height: 2.5rem ;
+    }
+    
+    strong {
+      grid-area: title;
+      margin-left: 1rem;
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+  
+      background: -webkit-linear-gradient(30.69deg, var(--purple) , var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
   }
 
   p {
-    padding: 0 2rem;
-    margin-left: 2rem;
-    border-left: 1px solid var(--gray-500);
+    grid-area: description;
+    text-align: center;
+    font-size: 0.875rem;
     color: var(--gray-500);
   }
 
   span {
+    grid-area: date;
+    font-size: 0.875rem;
+
     margin-left: auto;
     text-transform: capitalize;
+    top: 0;
+  }
+
+  @media (min-width: 40em) {
+    padding: 2rem 4rem;
+    height: 6.5rem;
+    justify-content: initial;
+
+    grid-template-columns: 12.5rem auto auto ;
+    grid-template-rows: 40;
+
+    grid-template-areas: 
+    'logo description date';
+
+    div {
+      img {
+        width: 2.5rem;
+      }
+  
+      strong {
+        margin-left: 1.125rem;
+        font-size: 1.5rem;
+        line-height: 1.875rem;
+      }
+
+    }
+
+    p {
+      text-align: left;
+
+      padding: 0 2rem;
+      margin-left: 2rem;
+      border-left: 1px solid var(--gray-500);
+
+    }
+  }
+
+  @media (min-width: 64em) {
+    
   }
 
 }

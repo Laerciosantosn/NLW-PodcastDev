@@ -9,6 +9,7 @@ import { api } from '../../services/api';
 
 import styles from './episode.module.scss';
 import { usePlayer } from '../../contexts/PlayerContext';
+import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
 type Episode = {
   id: string,
@@ -109,6 +110,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     members: data.members,
     published_at: format(parseISO(data.published_at), 'd MMM yy', { locale: ptBR }),
     duration: data.file.duration,
+    durationAsString: convertDurationToTimeString(data.file.duration),
     description: data.description,
     url: data.file.url,
   };
