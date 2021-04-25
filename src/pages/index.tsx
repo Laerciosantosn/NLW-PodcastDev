@@ -124,6 +124,10 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
           </tbody>
         </table>
      </section>
+     <div className={styles.attribution}>
+      Challenge by <a href="https://rocketseat.com.br/" target="_blank">NLW - Rocketseat.</a>.
+      Coded by <a href="#">Laércio Santos</a>.
+     </div>
     </div>
   )
 }
