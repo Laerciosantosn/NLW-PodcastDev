@@ -36,7 +36,6 @@ This webpage all the latest tools and practices in web development!
 
 
 
-
 <table>
 <thead>
 

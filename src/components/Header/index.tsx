@@ -11,8 +11,8 @@ export const Header: React.FC = () => {
     <header className={styles.headerContainer}>
         <img src="/Flat.svg" alt="Logo"/>
         <strong>PodecastDev</strong>
-        {/* <p>The best for you to hear, always</p>
-        <span>{currentDate}</span> */}
+        <p>The best for you to hear, always</p>
+        <span>{currentDate}</span>
     </header>
   );
 }
