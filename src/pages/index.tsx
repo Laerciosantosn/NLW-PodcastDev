@@ -9,7 +9,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { api } from "../services/api";
 
 import styles from './home.module.scss';
-import {  usePlayer } from '../contexts/PlayerContext';
+import { usePlayer } from '../contexts/PlayerContext';
 import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
 
 // SPA useEffect e um exemplo de SPA
@@ -44,42 +44,81 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
       <Head>
         <title>Home podcast</title>
       </Head>
-     <section className={styles.latestEpisodes}>
-       <h2>Last releases</h2>
+      <section className={styles.latestEpisodes}>
+        <h2>Last releases</h2>
 
-       <ul>
-          {latestEpisodes.map((episode, index) => {
-            return (
-              <li key={episode.id}>
-                <Image 
-                  width={192} 
-                  height={192} 
-                  objectFit='cover'
-                  src={episode.thumbnail} 
-                  alt={episode.title} 
-                />
+        <div>
+          <ul>
+            {latestEpisodes.map((episode, index) => {
+              return (
+                <li key={episode.id}>
+                  <img
+                    src={episode.thumbnail}
+                    alt={episode.title}
+                  />
 
-                <div className={styles.episodeDetails}>
-                  <Link href={`/episodes/${episode.id}`}>
-                    <a >{episode.title}</a>
-                  </Link>
-                  <p>{episode.members}</p>
-                  <span>{episode.published_at}</span>
-                  <span>{episode.durationAsString}</span>
-                </div>
+                  <div className={styles.episodeDetails}>
+                    <Link href={`/episodes/${episode.id}`}>
+                      <a >{episode.title}</a>
+                    </Link>
+                    <p>{episode.members}</p>
+                    <span>{episode.published_at}</span>
+                    <span>{episode.durationAsString}</span>
+                  </div>
+                  
                   <button type="button" onClick={() => playList(episodeList, index)}>
                     <img src="/play-green.svg" alt="Tocar episódio"/>
                   </button>
 
-              </li>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+
+      </section>
+
+      <section className={styles.allEpisodes}>
+        <h2>All episodes</h2>
+
+        <span>
+          <div></div>
+          <div>Podcast</div>
+          <div>Members</div>
+          <div>Date</div>
+          <div>Duration</div>
+          <div></div>
+        </span>
+
+        <article>
+          {allEpisodes.map((episode, index) => {
+            return (
+              <div key={episode.id} className={styles.episode}>
+                <img
+                  src={episode.thumbnail}
+                  alt={episode.title}
+                />
+                <Link href={`/episodes/${episode.id}`}>
+                  <a>{episode.title}</a>
+                </Link>
+                <p>{episode.members}</p>
+                <strong>{episode.published_at}</strong>
+                <span>{episode.durationAsString}</span>
+
+                <button
+                  type="button"
+                  onClick={() => playList(episodeList, index + latestEpisodes.length)}
+                >
+                  <img src="/play-white.svg" alt="Tocar episódio" />
+                </button>
+
+              </div>
             )
           })}
-       </ul>
-     </section>
 
-     <section className={styles.allEpisodes}>
-        <h2>All episodes</h2>
-        <table cellSpacing={0}>
+        </article>
+
+        {/* <table cellSpacing={0}>
           <thead>
             <tr>
               <th></th>
@@ -124,10 +163,12 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
             })}
           </tbody>
         </table>
-     </section>
-     <div className={styles.attribution}>
-      Challenge by <a href="https://rocketseat.com.br/" target="_blank">NLW - Rocketseat.</a>.
-      Coded by <a href="#">Laércio Santos</a>.
+     */}
+      </section>
+
+      <div className={styles.attribution}>
+        Challenge by <a href="https://rocketseat.com.br/" target="_blank">NLW - Rocketseat.</a>.
+        Coded by <a href="#">Laércio Santos</a>.
      </div>
     </div>
   )

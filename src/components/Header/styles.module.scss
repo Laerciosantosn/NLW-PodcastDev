@@ -33,13 +33,12 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
   }
 
   p {
     grid-area: description;
     text-align: center;
-    font-size: 0.875rem;
+    font-size: .875rem;
     color: var(--gray-500);
   }
 
@@ -73,21 +72,25 @@
         font-size: 1.5rem;
         line-height: 1.875rem;
       }
-
     }
 
     p {
       text-align: left;
-
+      font-size: 1rem;
       padding: 0 2rem;
       margin-left: 2rem;
       border-left: 1px solid var(--gray-500);
 
     }
+
+    span {
+      font-size: 1rem;
+
+    }
   }
 
   @media (min-width: 64em) {
-    
-  }
+   
 
+  }
 }
