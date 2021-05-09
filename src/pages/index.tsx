@@ -82,8 +82,8 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
         <h2>All episodes</h2>
 
         <span>
-          <div></div>
           <div>Podcast</div>
+          <div></div>
           <div>Members</div>
           <div>Date</div>
           <div>Duration</div>

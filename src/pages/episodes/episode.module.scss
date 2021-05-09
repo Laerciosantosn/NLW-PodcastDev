@@ -38,10 +38,7 @@
         top: 50%;
         background: linear-gradient(130.69deg, var(--cyan) , var(--green));
         transform: translate(50%, -50%);
-
       }
-
-      
     }
 
     @media (min-width: 40em) {
@@ -116,13 +113,9 @@
     }
 
     @media (min-width: 64em){
-      // margin-top: 2rem;
-      // margin-bottom: 1.5rem;
-
       h1 {
         font-size: 2rem;
         line-height: 2.5rem;
-
       }
 
       span {
@@ -140,6 +133,5 @@
     p {
       margin: 1.5rem 0;
     }
-
   }
 }
